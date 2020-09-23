@@ -31,9 +31,9 @@ CREATE TABLE `Sighting` (
      REFERENCES Flower(flower_id)
 );
 
-CREATE TABLE `Like` (
-  `like_user_id` bigint(55) NOT NULL,
-  `like_sighting_id` bigint(55) NOT NULL,
+CREATE TABLE `User_sighting_likes` (
+  `like_user_id` bigint NOT NULL,
+  `like_sighting_id` bigint NOT NULL,
    PRIMARY KEY (like_user_id, like_sighting_id),
    CONSTRAINT fk_lu FOREIGN KEY (like_user_id)
         REFERENCES User(user_id),
