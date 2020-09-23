@@ -4,7 +4,7 @@ CREATE TABLE `User` (
   `user_id` bigint NOT NULL,
   `user_email` varchar(55) NOT NULL UNIQUE,
   `user_username` varchar(55) NOT NULL UNIQUE,
-  `user_password` varchar(55) NOT NULL,
+  `user_password` varchar(62) NOT NULL,
    PRIMARY KEY (user_id)
 );
 
