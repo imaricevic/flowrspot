@@ -19,7 +19,7 @@ public class JwtUtil {
     private String jwtSecret;
 
     // 2 hours
-    private int jwtExpiration = 1000 * 60 * 60 * 2;
+    private int jwtExpiration = 1000 * 60 * 60 * 5;
 
     public String generateJwtToken(String username) {
         return Jwts.builder()

@@ -1,5 +1,6 @@
 package povio.flowrspot.model;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,11 +10,11 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "Flower")
+@Table(name = "flower")
 public class Flower {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "flower_id", nullable = false)
     private Long id;
 
@@ -27,6 +28,7 @@ public class Flower {
     private String description;
 
     @OneToMany(mappedBy = "flower")
+    @JsonIgnore
     private List<Sighting> listOfSightings;
 
 }
