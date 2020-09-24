@@ -1,8 +1,9 @@
 package povio.flowrspot.model;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.persistence.*;
 import java.util.List;
@@ -31,4 +32,8 @@ public class Flower {
     @JsonIgnore
     private List<Sighting> listOfSightings;
 
+    @Transient
+    public String getImageLink() {
+        return ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString() + "/images/" + image;
+    }
 }

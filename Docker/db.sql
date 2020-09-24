@@ -40,3 +40,15 @@ CREATE TABLE `user_sighting_likes` (
    CONSTRAINT fk_ls FOREIGN KEY (like_sighting_id)
      REFERENCES sighting(sighting_id)
 );
+
+INSERT INTO `flower` (`flower_id`, `flower_name`,`flower_description`, `flower_image` ) VALUES
+(1,	'Carnation',	NULL,	'carnation.jpg'),
+(2,	'Common daisy',	NULL,	'common-daisy.jpg'),
+(3,	'Corn flower',	NULL,	'corn-flower.jpeg'),
+(4,	'Lotus',	NULL,	'lotus.jpg'),
+(5,	'Poinsettia',	NULL,	'poinsettia.jpeg'),
+(6,	'Red rose',	NULL,	'red-rose.jpg'),
+(7,	'Sunflower',	NULL,	'sun-flower.jpg'),
+(8,	'Yarrow',	NULL,	'yarrow.jpeg'),
+(9,	'Yellow archangel',	NULL,	'yellow-archangel.jpeg'),
+(10,'Butterfly weed',	NULL, 'butterfly-weed.jpg');
