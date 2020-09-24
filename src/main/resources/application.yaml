@@ -10,8 +10,12 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      ddl-auto: update
+        show_sql: true
+        format_sql: true
 
 jwt:
   secret: PurkmRDAnAaSvmDaAfi
+
+quote:
+  api:
+    link: http://quotes.rest/qod

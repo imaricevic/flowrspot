@@ -1,5 +1,9 @@
 package povio.flowrspot.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,12 +14,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "Sighting")
+@Table(name = "sighting")
 public class Sighting {
 
     @Id
-    @GeneratedValue
-    @Column(name = "flower_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "sighting_id", nullable = false)
     private Long id;
 
     @Column(name = "sighting_long", nullable = false)
@@ -40,7 +44,7 @@ public class Sighting {
 
     @ManyToMany
     @JoinTable(
-            name = "User_sighting_likes",
+            name = "user_sighting_likes",
             joinColumns = @JoinColumn(name = "like_sighting_id"),
             inverseJoinColumns = @JoinColumn(name = "like_user_id"))
     private List<User> likedByUsers;
