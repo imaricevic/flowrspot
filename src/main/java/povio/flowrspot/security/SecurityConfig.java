@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 csrf().disable().
                 authorizeRequests().
                 antMatchers("/login", "/register", "/hello").permitAll().and().
-                authorizeRequests().antMatchers(HttpMethod.GET, "/flowers", "/flowers/**/listOfSightings").permitAll().
+                authorizeRequests().antMatchers(HttpMethod.GET, "/flowers", "/images/**", "/flowers/**/listOfSightings").permitAll().
                 anyRequest().authenticated().and().
                 sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
