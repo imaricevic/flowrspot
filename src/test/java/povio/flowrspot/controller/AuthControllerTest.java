@@ -56,7 +56,7 @@ public class AuthControllerTest {
                 .content(new ObjectMapper().writeValueAsString(user))
                 .contentType(MediaType.APPLICATION_JSON);
 
-        // bug in WebMvcTest; @jsonProperty not working properly
+        // bug in test enviroment; @jsonProperty not working properly
         String encoded = passwordEncoder.encode(user.getPassword());
         when(passwordEncoder.encode(anyString())).thenReturn(encoded);
         when(userRepository.existsByUsernameOrMail(anyString(), anyString())).thenReturn(false).thenReturn(true);

@@ -61,7 +61,7 @@ public class User implements UserDetails {
         return mail;
     }
 
-    @JsonProperty
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public void setMail(String mail) {
         this.mail = mail;
     }
