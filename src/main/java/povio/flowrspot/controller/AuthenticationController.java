@@ -46,8 +46,8 @@ public class AuthenticationController {
             logger.error("Bad credentials..");
             throw new Exception("Username or password are incorrect", e);
         }
-        logger.info("User " + request.getUsername() + " successfully logged in.");
         final String jwt = jwtUtil.generateJwtToken(request.getUsername());
+        logger.info("User " + request.getUsername() + " successfully logged in.");
         return ResponseEntity.ok(new AuthenticationResponseDTO(jwt));
     }
 
@@ -59,6 +59,7 @@ public class AuthenticationController {
         user.setId(null);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
+        logger.info("User " + user.getUsername() + " successfully registered.");
 
         return ResponseEntity.ok("Registration completed.");
     }
