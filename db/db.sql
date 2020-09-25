@@ -1,6 +1,6 @@
 CREATE DATABASE `flowrspot`;
 
-CREATE TABLE `user_account` (
+CREATE TABLE flowrspot.user_account (
   `user_id` bigint NOT NULL AUTO_INCREMENT,
   `user_email` varchar(55) NOT NULL UNIQUE,
   `user_username` varchar(55) NOT NULL UNIQUE,
@@ -8,7 +8,7 @@ CREATE TABLE `user_account` (
    PRIMARY KEY (user_id)
 );
 
-CREATE TABLE `flower` (
+CREATE TABLE flowrspot.flower (
   `flower_id` bigint NOT NULL AUTO_INCREMENT,
   `flower_name` varchar(55) NOT NULL,
   `flower_image` varchar(95),
@@ -16,7 +16,7 @@ CREATE TABLE `flower` (
    PRIMARY KEY (flower_id)
 );
 
-CREATE TABLE `sighting` (
+CREATE TABLE flowrspot.sighting (
   `sighting_id` bigint NOT NULL AUTO_INCREMENT,
   `sighting_long` DECIMAL(9, 6) NOT NULL,
   `sighting_lat` DECIMAL(8, 6) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `sighting` (
      REFERENCES flower(flower_id)
 );
 
-CREATE TABLE `user_sighting_likes` (
+CREATE TABLE flowrspot.user_sighting_likes (
   `like_user_id` bigint NOT NULL,
   `like_sighting_id` bigint NOT NULL,
    PRIMARY KEY (like_user_id, like_sighting_id),
@@ -41,7 +41,7 @@ CREATE TABLE `user_sighting_likes` (
      REFERENCES sighting(sighting_id)
 );
 
-INSERT INTO `flower` (`flower_id`, `flower_name`,`flower_description`, `flower_image` ) VALUES
+INSERT INTO flowrspot.flower (`flower_id`, `flower_name`,`flower_description`, `flower_image` ) VALUES
 (1,	'Carnation',	NULL,	'carnation.jpg'),
 (2,	'Common daisy',	NULL,	'common-daisy.jpg'),
 (3,	'Corn flower',	NULL,	'corn-flower.jpeg'),

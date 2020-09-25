@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "user_account")
 public class User implements UserDetails {
@@ -49,7 +51,7 @@ public class User implements UserDetails {
         return password;
     }
 
-    @JsonProperty
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public void setPassword(String password) {
         this.password = password;
     }
